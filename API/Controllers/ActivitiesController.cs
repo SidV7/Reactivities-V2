@@ -5,6 +5,7 @@ using Application.Activities.Queries;
 using Application.Core;
 using Domain;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 
@@ -23,10 +24,6 @@ public class ActivitiesController : BaseApiController
     [HttpGet("{id}")]
     public async Task<ActionResult<Activity>> GetActivityDetail(string id)
     {
-        // var activity = await context.Activities.FindAsync(id);
-        // if (activity == null) return NotFound();
-        // return activity;
-        //throw new Exception("Server test error");
         return HandleResult(await Mediator.Send(new GetActivityDetails.Query { Id = id }));
     }
 
