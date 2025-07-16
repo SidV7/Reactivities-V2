@@ -1,7 +1,6 @@
 import { CalendarToday, Info, Place } from "@mui/icons-material";
 import { Box, Button, Divider, Grid2, Paper, Typography } from "@mui/material";
-import { formatDate } from "../../../lib/util/Util";
-import type { Activity } from "../../../lib/types";
+import { formatDate } from "../../../lib/util/util";
 import MapComponent from "../../../app/shared/components/MapComponent";
 import { useState } from "react";
 
@@ -43,7 +42,8 @@ export default function ActivityDetailsInfo({ activity }: Props) {
                     <Typography>
                         {activity.venue}, {activity.city}
                     </Typography>
-                    <Button onClick={() => setMapOpen(!mapOpen)}>
+                    <Button sx={{ whiteSpace: 'nowrap', mx: 2 }}
+                        onClick={() => setMapOpen(!mapOpen)}>
                         {mapOpen ? 'Hide map' : 'Show map'}
                     </Button>
                 </Grid2>
@@ -51,7 +51,7 @@ export default function ActivityDetailsInfo({ activity }: Props) {
             {mapOpen && (
                 <Box sx={{ height: 400, zIndex: 1000, display: 'block' }}>
                     <MapComponent
-                        position={[activity.latitude, activity.longitude]} 
+                        position={[activity.latitude, activity.longitude]}
                         venue={activity.venue}
                     />
                 </Box>

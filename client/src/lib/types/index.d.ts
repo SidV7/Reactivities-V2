@@ -9,42 +9,54 @@ type Activity = {
   venue: string;
   latitude: number;
   longitude: number;
-}
+  attendees: Profile[];
+  isGoing: boolean;
+  isHost: boolean;
+  hostId: string;
+  hostDisplayName: string;
+};
+
+type Profile = {
+  id: string;
+  displayName: string;
+  bio?: string;
+  imageUrl?: string;
+};
 
 type LocationIQSuggestion = {
-  place_id: string
-  osm_id: string
-  osm_type: string
-  licence: string
-  lat: string
-  lon: string
-  boundingbox: string[]
-  class: string
-  type: string
-  display_name: string
-  display_place: string
-  display_address: string
-  address: LocationIQAddress
-}
+  place_id: string;
+  osm_id: string;
+  osm_type: string;
+  licence: string;
+  lat: string;
+  lon: string;
+  boundingbox: string[];
+  class: string;
+  type: string;
+  display_name: string;
+  display_place: string;
+  display_address: string;
+  address: LocationIQAddress;
+};
 
 type User = {
-  id: string
-  email: string
-  displayName: string
-  imageUrl?: string
-}
+  id: string;
+  email: string;
+  displayName: string;
+  imageUrl?: string;
+};
 
 type LocationIQAddress = {
-  name: string
-  house_number: string
-  road: string
-  suburb?: string
-  town?: string
-  village?: string 
-  city?: string
-  county: string
-  state: string
-  postcode: string
-  country: string
-  country_code: string
-}
+  name: string;
+  house_number: string;
+  road: string;
+  suburb?: string;
+  town?: string;
+  village?: string;
+  city?: string;
+  county: string;
+  state: string;
+  postcode: string;
+  country: string;
+  country_code: string;
+};
